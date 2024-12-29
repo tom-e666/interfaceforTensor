@@ -4,10 +4,10 @@ import styled from 'styled-components';
 const ChatApp = () => {
     const [messages, setMessages] = useState([
         { id: 1, text: 'Hello, how are you?', sender: 'user',flag:false },
-        { id: 2, text: 'I\'m good, thanks for asking!', sender: 'bot',flag:true },
+        { id: 2, text: 'Congratulations! You\'ve won a free gift card. Click here to claim your prize!', sender: 'bot',flag:true },
         { id: 3, text: 'Hello, how are you?', sender: 'user',flag:false },
         { id: 4, text: 'I\'m good, thanks for asking!', sender: 'bot',flag: false },
-        { id: 5, text: 'fldsjffsdf?', sender: 'user',flag:true },
+        { id: 5, text: 'You have been selected for a once-in-a-lifetime investment opportunity. Contact us today!', sender: 'user',flag:true },
     ]);
     const [input, setInput] = useState('');
 
@@ -47,7 +47,7 @@ const ChatApp = () => {
                     <MessageBox key={message.id} sender={message.sender}>
                         <MessageText sender={message.sender}>{message.text}</MessageText>
                         {message.flag ? (
-                            <div style={{ top: 0, fontSize: 12, color: "yellow" }}>may be this is a spam!</div>
+                            <div style={{ top: 0, fontSize: 12, color: "red" }}>may be this is a spam!</div>
                         ) :(<></>)}
                     </MessageBox>
                 ))}
@@ -96,7 +96,7 @@ const MessagesContainer = styled.div`
     margin-bottom: 16px;
     padding: 8px;
     height: 60svh;
-    background-color: black;
+    background-color:white;
     border-radius: 8px;
 `;
 
@@ -111,7 +111,7 @@ const MessageText = styled.div<{ sender: string }>`
     padding: 10px;
     border-radius: 8px;
     background-color: ${(props) => {
-        return (props.sender === 'user' ? 'blue' : 'green');
+        return (props.sender === 'user' ? '#1591ea' : '#27a567');
     }};
     width: 40%;
     word-wrap: break-word;
@@ -132,8 +132,10 @@ const Input = styled.input`
     padding: 8px;
     margin-right: 8px;
     border: 1px solid #ddd;
+    background: antiquewhite;
     border-radius: 4px;
     font-size: 14px;
+    color: #1a1a1a;
 `;
 
 const Button = styled.button`
