@@ -76,78 +76,94 @@ const ChatContainer = styled.div`
     flex-direction: column;
     width: 80svw;
     height: 80svh;
-    margin: 0 auto;
+    margin: 50px auto; // Added top/bottom margin
     padding: 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: gray;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative; // Added position
+    left: 50%; // Center horizontally
+    transform: translateX(-50%); // Offset by half width
+    max-width: 1200px; // Added max-width
 `;
 
 const ChatHeader = styled.div`
     text-align: center;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
     padding-bottom: 16px;
+    color: #333;
 `;
 
 const MessagesContainer = styled.div`
     flex-grow: 1;
     overflow-y: auto;
     margin-bottom: 16px;
-    padding: 8px;
+    padding: 16px;
     height: 60svh;
-    background-color:white;
-    border-radius: 8px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
 `;
 
 const MessageBox = styled.div<{ sender: string }>`
     display: flex;
     flex-direction: column;
     align-items: ${(props) => (props.sender === 'user' ? 'flex-end' : 'flex-start')};
-    margin: 8px 0;
+    margin: 12px 0;
 `;
 
 const MessageText = styled.div<{ sender: string }>`
-    padding: 10px;
-    border-radius: 8px;
-    background-color: ${(props) => {
-        return (props.sender === 'user' ? '#1591ea' : '#27a567');
-    }};
-    width: 40%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    background-color: ${(props) => 
+        props.sender === 'user' ? '#0084ff' : '#e4e6eb'};
+    color: ${(props) => props.sender === 'user' ? 'white' : '#333'};
+    max-width: 60%;
     word-wrap: break-word;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 `;
 
 const MessageInput = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 12px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
     form {
         width: 100%;
         display: flex;
+        gap: 8px;
     }
 `;
 
 const Input = styled.input`
     width: 90%;
-    padding: 8px;
-    margin-right: 8px;
-    border: 1px solid #ddd;
-    background: antiquewhite;
-    border-radius: 4px;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 24px;
     font-size: 14px;
-    color: #1a1a1a;
+    outline: none;
+    transition: border-color 0.2s;
+    
+    &:focus {
+        border-color: #0084ff;
+    }
 `;
 
 const Button = styled.button`
-    padding: 8px 16px;
-    background-color: deeppink;
+    padding: 12px 24px;
+    background-color: #0084ff;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 24px;
     cursor: pointer;
     font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s;
 
     &:hover {
-        background-color: #0056b3;
+        background-color: #0073e6;
     }
 `;
